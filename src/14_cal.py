@@ -31,18 +31,34 @@ import sys
 import calendar
 from datetime import datetime
 
-if len(sys.argv) == 1:
-  todays_date = datetime.now()
-  print(todays_date)
-  
-else:
-  m = sys.argv[1]
-  y = sys.argv[2]
+print("\n")
 
-  print(m, y)
+def printdate(args):
+
+  if len(args) == 1:
+    todays_date = datetime.now()
+    m = todays_date.month
+    y = todays_date.year
+    print("Arguments are as follows: `14_cal.py [month] [year]`\n")
+    print("This is the calendar for the current month\n")
+    print("--------------------")
+    return calendar.TextCalendar(firstweekday=0).prmonth(y, m)
+    
+  elif len(args) == 2:
+    todays_date = datetime.now()
+    y = todays_date.year
+    m = int(args[1])
+    print("--------------------")
+    return calendar.TextCalendar(firstweekday=0).prmonth(y, m)
+  else:
+    m = int(args[1])
+    y = int(args[2])
+    print("--------------------")
+    return calendar.TextCalendar(firstweekday=0).prmonth(y, m)
+    
+printdate(sys.argv)
+
+print("--------------------")
 
 
 
-
-
-print("Arguments are as follows: `14_cal.py [month] [year]`")
