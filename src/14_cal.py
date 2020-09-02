@@ -45,22 +45,25 @@ def printdate(args):
     return calendar.TextCalendar(firstweekday=0).prmonth(y, m)
     
   elif len(args) == 2:
+    if ((sys.argv[1].isdigit() == False)):
+      print("Arguments are as follows: `14_cal.py [month] [year]`\n")
+      print("[month] and [year] must be an integer.")
+      exit()
     todays_date = datetime.now()
     y = todays_date.year
     m = int(args[1])
     print("--------------------")
     return calendar.TextCalendar(firstweekday=0).prmonth(y, m)
   else:
+    if ((sys.argv[1].isdigit() == False) or (sys.argv[2].isdigit() == False)):
+      print("Arguments are as follows: `14_cal.py [month] [year]`\n")
+      print("[month] and [year] must be an integer.")
+      exit()
     m = int(args[1])
     y = int(args[2])
     print("--------------------")
     return calendar.TextCalendar(firstweekday=0).prmonth(y, m)
     
-if ((sys.argv[1].isdigit() == False) or (sys.argv[2].isdigit() == False)):
-  print("Arguments are as follows: `14_cal.py [month] [year]`\n")
-  print("[month] and [year] must be an integer.")
-  exit()
-
 printdate(sys.argv)
 
 print("--------------------")
