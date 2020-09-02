@@ -26,7 +26,7 @@ f.closed
 
 with open('bar.txt', 'x') as g:
     g.write("Arbitrary lines of text \n")
-    g.write("Test is fun to write \n")
+    g.write("Text is fun to write \n")
     g.write("Having a blast \n")
 
 g.closed
