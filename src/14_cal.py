@@ -56,6 +56,11 @@ def printdate(args):
     print("--------------------")
     return calendar.TextCalendar(firstweekday=0).prmonth(y, m)
     
+if ((sys.argv[1].isdigit() == False) or (sys.argv[2].isdigit() == False)):
+  print("Arguments are as follows: `14_cal.py [month] [year]`\n")
+  print("[month] and [year] must be an integer.")
+  exit()
+
 printdate(sys.argv)
 
 print("--------------------")
